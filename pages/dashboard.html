@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- <link rel="stylesheet" href="./assets/style.css"> -->
+  </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+    * {
+      font-family: "Poppins", sans-serif;
+    }
+    .btn-primary {
+      background: #03a9f4 !important;
+      border: 1px solid #03a9f4 !important;
+    }
+  </style>
+  <body>
+    <nav class="navbar bg-body-tertiary">
+      <div class="container">
+        <a
+          class="navbar-brand"
+          data-bs-toggle="offcanvas"
+          href="#offcanvasExample"
+          role="button"
+          aria-controls="offcanvasExample"
+          style="font-size: 24px; color: black; font-weight: bold"
+        >
+          <i class="bx bx-menu"></i>
+        </a>
+      </div>
+    </nav>
+    <div class="container mt-3">
+      <div class="page-title mb-4">
+        <h2>Dashboard</h2>
+      </div>
+      <table class="table table-hover table-bordered" id="table">
+        <thead>
+          <tr>
+            <th colspan="5">
+              <div class="d-flex justify-content-end gap-2">
+                <button class="btn btn-primary">Import Excel</button>
+                <button class="btn btn-primary">Export Excel</button>
+              </div>
+            </th>
+          </tr>
+          <!-- <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Email</th>
+            <th scope="col"></th>
+          </tr> -->
+        </thead>
+        <tbody id="tbody">
+          <!-- <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+            <td>
+              <button
+                type="button"
+                class="btn btn-warning"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+              >
+                Edit
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+            <td>
+              <button
+                type="button"
+                class="btn btn-warning"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+              >
+                Edit
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Larry the Bird</td>
+            <td></td>
+            <td>@twitter</td>
+            <td>
+              <button
+                type="button"
+                class="btn btn-warning"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+              >
+                Edit
+              </button>
+            </td>
+          </tr> -->
+        </tbody>
+      </table>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-end">
+          <li class="page-item disabled">
+            <a class="page-link">Previous</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Profile</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body" id="modalBody"></div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-success">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- offcanvas -->
+    <div
+      class="offcanvas offcanvas-start"
+      tabindex="-1"
+      id="offcanvasExample"
+      aria-labelledby="offcanvasExampleLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Dashboard</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <div style="position: absolute; bottom: 10px; right: 10px">
+          <button
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#logoutModal"
+            class="btn btn-secondary w-100"
+            style="width: 100% !important"
+          >
+            Logout
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Logout Modal -->
+    <div
+      class="modal fade"
+      id="logoutModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Logout</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="d-flex align-items-center gap-3 flex-row my-3">
+              <img
+                src="../assets/power-off.png"
+                width="100"
+                height="100"
+                alt=""
+              />
+              <p>Are you sure you want to Logoff?</p>
+            </div>
+            <div class="d-flex justify-content-end gap-2">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="button" class="btn btn-primary" onclick="logout()">
+                Logout
+              </button>
+            </div>
+          </div>
+          <!-- <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div> -->
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../js/script.js"></script>
+  </body>
+</html>

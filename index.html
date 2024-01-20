@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="./assets/style.css" />
+  </head>
+  <body>
+    <section>
+      <div class="imgBox">
+        <img
+          src="https://media.istockphoto.com/id/1465316262/photo/businessman-inspecting-paperwork-document-of-business-data-analysis-working-management-report.jpg?s=612x612&w=0&k=20&c=kpD3aZWVIH0VfOwdG4RX5vPRFPMftg5Dp4xCVo3Lito="
+          alt=""
+        />
+      </div>
+      <div class="contentBox">
+        <div class="form">
+          <div>
+            <h2>Login</h2>
+            <div class="input-wrapper">
+              <input
+                class="input"
+                type="text"
+                id="emailInput"
+                autocomplete="off"
+                required
+              />
+              <span class="placeholder">Email</span>
+            </div>
+            <div class="input-wrapper">
+              <input
+                class="input"
+                type="password"
+                id="passwordInput"
+                required
+              />
+              <span class="placeholder">Password</span>
+            </div>
+            <button class="loginBtn" type="button" onclick="login()">
+              Login
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      function login() {
+        const email = document.getElementById("emailInput").value;
+        const password = document.getElementById("passwordInput").value;
+
+        if (email != "" || password != "") {
+            window.location.href = './pages/dashboard.html'
+        }
+      }
+    </script>
+  </body>
+</html>
